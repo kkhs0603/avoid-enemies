@@ -27,14 +27,14 @@ const GameBoad = () => {
     }else{
       setEnemyY(0);
     }
+    clearInterval(timer);
   }
 
-  
+  const timer = setInterval(enemyMove, 1000);
+
   useEffect(() => {
-    //const timer = setInterval(enemyMove, 1000);
     window.addEventListener('keydown', keyHandler);
     return () => {
-      //clearInterval(timer);
       window.removeEventListener('keydown', keyHandler);
     }
   });
