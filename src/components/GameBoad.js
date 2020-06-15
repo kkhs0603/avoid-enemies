@@ -22,15 +22,24 @@ const GameBoad = () => {
     }
   }
   const enemyMove = () => {
+    
     if(enemyY <= 9){
       setEnemyY(enemyY + 1);
     }else{
       setEnemyY(0);
+      var randomX = Math.floor( Math.random() * 10 );
+      setEnemyX(randomX);
     }
     clearInterval(timer);
-  }
 
+    //timerId何個も生成されているっぽい
+    if(enemyX === 0){
+      console.log(timer)
+    clearTimeout(timer);
+    }
+  }
   const timer = setInterval(enemyMove, 1000);
+
 
   useEffect(() => {
     window.addEventListener('keydown', keyHandler);

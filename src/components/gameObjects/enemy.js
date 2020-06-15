@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Enemy = (enemyPosition) => {
-  console.log(enemyPosition);
+  console.log('enemy: '+ enemyPosition.positionY);
   const enemyStyle = {
     height: '50px',
     width: '50px',
