@@ -33,13 +33,22 @@ const GameBoad = () => {
     clearInterval(timer);
 
     //timerId何個も生成されているっぽい
-    if(enemyX === 0){
+    if(enemyY === 0){
       console.log(timer)
     clearTimeout(timer);
     }
   }
   const timer = setInterval(enemyMove, 1000);
+  // var timerArray = new Array();
+  // function exec_interval() {
+  //     timerArray.push(setInterval("alert('5秒間隔で表示されます。');", 5000));
+  // }
 
+  // function stop_interval() {
+  //     if (timerArray.length > 0) {
+  //     clearInterval(timerArray .shift());
+  //     }
+  // }
 
   useEffect(() => {
     window.addEventListener('keydown', keyHandler);
@@ -59,6 +68,7 @@ const GameBoad = () => {
       style={gameFrame}
       tabIndex="0"
       >
+        <button onClick={()=>{}}>START</button>
       <Player position={playerX}/>
       <Enemy positionX={enemyX} positionY={enemyY}/>
     </div>
