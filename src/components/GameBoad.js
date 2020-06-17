@@ -20,7 +20,9 @@ const GameBoad = () => {
         setPlayerX(playerX + 1);
       }
     }
+    
   }
+  //timer問題むずいなぁ、調べよう。
   const enemyMove = () => {
     
     if(enemyY <= 9){
