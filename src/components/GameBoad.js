@@ -20,8 +20,10 @@ const GameBoad = () => {
         setPlayerX(playerX + 1);
       }
     }
-    
+    window.removeEventListener('keydown', keyHandler);
   }
+
+  let timer;
   //timer問題むずいなぁ、調べよう。
   const enemyMove = () => {
     
@@ -36,26 +38,20 @@ const GameBoad = () => {
 
     //timerId何個も生成されているっぽい
     if(enemyY === 0){
-      console.log(timer)
-    clearTimeout(timer);
+      clearTimeout(timer);
     }
   }
-  const timer = setInterval(enemyMove, 1000);
-  // var timerArray = new Array();
-  // function exec_interval() {
-  //     timerArray.push(setInterval("alert('5秒間隔で表示されます。');", 5000));
-  // }
-
-  // function stop_interval() {
-  //     if (timerArray.length > 0) {
-  //     clearInterval(timerArray .shift());
-  //     }
-  // }
-
-  useEffect(() => {
-    window.addEventListener('keydown', keyHandler);
+  
+  const startGame = () => {
+    timer = setInterval(enemyMove, 1000);
+    return timer
+  }
+  window.addEventListener('keydown', keyHandler);
+  startGame()
+  
+  useEffect(() => { 
     return () => {
-      window.removeEventListener('keydown', keyHandler);
+      
     }
   });
   const gameFrame = {
